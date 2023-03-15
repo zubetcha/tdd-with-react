@@ -1,6 +1,6 @@
 # react testing library
 
-## 쿼리 함수
+## Query 함수
 
 **getBy**
 
@@ -23,3 +23,11 @@
 **waitFor**
 
 - 일정 시간 동안 기다려야 할 때, 기대가 통과할 때까지 기다릴 수 있다.
+
+## Query 사용 우선 순위
+
+- 접근성 우선: getByRole
+- 이미지 등: getByAltText
+- getByTestId는 개발자만 볼 수 있기 때문에 좋은 방법이 아님
+
+공식 문서 참고
