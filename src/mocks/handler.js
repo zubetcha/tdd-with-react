@@ -1,6 +1,5 @@
 import { rest } from "msw";
-
-const SERVER = "http://localhos:5000";
+import { SERVER } from "../shared/constants";
 
 export const handlers = [
   rest.get(`${SERVER}/products`, (req, res, ctx) => {
