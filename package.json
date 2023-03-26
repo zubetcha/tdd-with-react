@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -32,6 +32,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.5.0",
     "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-testing-library": "^5.10.2"
   }
