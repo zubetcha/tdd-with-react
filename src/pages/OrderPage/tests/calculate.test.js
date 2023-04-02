@@ -1,11 +1,9 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "../../../utils/test";
 
-import { OrderContextProvider } from "../../../contexts/OrderContext";
 import Type from "../Type";
 
 test("update product's total when products change", async () => {
-  render(<Type orderType="products" />, { wrapper: OrderContextProvider });
+  render(<Type orderType="products" />);
 
   const productsTotal = screen.getByText("총 가격:", { exact: false });
   expect(productsTotal).toHaveTextContent("0");
@@ -15,7 +13,10 @@ test("update product's total when products change", async () => {
     name: "America",
   });
 
-  userEvent.clear(americaInput);
-  userEvent.type(americaInput, "1");
+  // userEvent.clear(americaInput);
+  // userEvent.type(americaInput, "1");
+  // https://github.com/testing-library/user-event/issues/411
+  fireEvent.change(americaInput, { target: { value: "1" } });
+
   expect(productsTotal).toHaveTextContent("1000");
 });
